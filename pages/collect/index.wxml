@@ -1,0 +1,71 @@
+<!--pages/home.wxml-->
+<view class="home-con">
+
+    <view class='no_login' wx:if='{{ !isLogin }}'>
+         <image class="icon_login" src="../../images/icon_login.png" mode="widthFix" lazy-load="false" binderror="" bindload="" />
+        <button class='for_login' open-type="getUserInfo" bindgetuserinfo='getUserInfoFun'>
+            <image class="icon_login_btn" src="../../images/icon_loginbtn.png" mode="widthFix" lazy-load="false" binderror="" bindload="" />
+        </button>
+    </view>
+
+    <view class='main' wx:if='{{ isLogin && isNoData }}'> 
+        <view class='top_txt'>
+            收藏0部视频
+        </view>
+        <view class='icon_kong_box'>
+            <image class="icon_kong" src="../../images/icon_kong.png" mode="widthFix" lazy-load="false" binderror="" bindload="" />
+            <view class='icon_kong_txt'>
+                暂无收藏视频
+            </view>
+        </view>
+    </view>
+
+    <view class='main' wx:if='{{ isLogin && !isNoData }}'> 
+        <view class='top_txt'>
+            收藏 {{ props.homeStore.collectListDatas.total }} 部视频
+        </view>
+        <view class='icon_kong_box' wx:if='{{false}}'>
+            <image class="icon_kong" src="../../images/icon_kong.png" mode="widthFix" lazy-load="false" binderror="" bindload="" />
+        </view>
+        <scroll-view class='scroll_box' scroll-y="true" bindscrolltolower="_loadMoreWallPaper" lower-threshold="_loadMoreWallPaper"> 
+            <block wx:for="{{ props.homeStore.collectListDatas.list }}" wx:key="{{index}}">
+                <view class='video_box'>
+                    <view class='video_tit' bindtap='_toDetail' data-id='{{ item.id }}'>
+                        {{ item.title }}
+                    </view>
+                    <view class='videoImgBox' bindtap='_toDetail'  data-id='{{ item.id }}'>
+                        <image class="forAudio" src="{{ item.imgUrl }}" mode="aspectFill" lazy-load="false" binderror="" bindload="" />
+                        <image class="icon_player" src="../../images/icon_player.png" mode="aspectFill" lazy-load="false" binderror="" bindload="" />
+                        <view class='video_time'>
+                            {{ item.videoDurationStr }}
+                        </view>
+                    </view>
+                    <view class=" v-source-box ">
+                        <view class=" v_source ">
+                            {{ item.posterName }}
+                        </view>
+
+                        <view class=" v_state ">
+                            <view class='v_state_edit'>
+                            <!--
+                                <image class="icon_zan" src="../../images/icon_like.png" mode="aspectFill" lazy-load="false" binderror="" bindload="" />
+                            -->喜欢
+                                {{ item.likeCount }}
+                            </view>
+                            <view class='v_state_edit'>
+                            <!--
+                                <image class="icon_zan" src="../../images/icon_collec.png" mode="aspectFill" lazy-load="false" binderror="" bindload="" />
+                            -->收藏
+                                {{ item.collectCount }}
+                            </view>
+                        </view>
+                    </view>
+                    <view class='line'></view>
+                </view>
+            </block>
+            <load-more loadStatus="{{loadStatus}}"></load-more>
+        </scroll-view>
+    </view>
+   
+
+</view>

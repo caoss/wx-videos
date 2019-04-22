@@ -1,0 +1,11 @@
+<!-- 组件模板 -->
+<view 
+    class="touch-con"
+    bindtouchstart="start"
+    bindtouchmove="move"
+    bindtouchend="end"
+    bindtouchcancel="cancel"
+    bindtap="tap"
+>
+    <slot></slot>
+</view>

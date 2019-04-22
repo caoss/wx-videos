@@ -1,0 +1,6 @@
+/* components/component-tag-name.wxss */
+.touch-con {
+  position: relative;
+  height: 100%
+}
+

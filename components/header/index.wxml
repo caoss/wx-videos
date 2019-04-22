@@ -1,0 +1,26 @@
+<!-- 组件模板 -->
+<view class="nav-pos" style="padding-top:{{statusBarHeight}}px;background-color:#5066C8" wx:if="{{type===1}}">
+
+    <view class="nav-wrapper" style="height:{{navgationHeight}}px" wx:if="{{ !titleIconR }}">
+        <view class='nav-left-input'>
+            <view class='icon_clean_con' wx:if='{{ showClean }}'  catchtap='_clean'>
+                <image src="../../images/icon_clean.png" class='icon_clean'></image>
+            </view>
+            <image src="../../images/icon_search.png" class='back-search'></image>
+            <input class="nav_l_input" value='{{ inputValue }}' confirm-type='search' bindconfirm="_bindconfirm" caret-color="red" placeholder="蘑菇头，污表情，动图" bindinput='_bindInput' />
+        </view>
+        <view class='nav-title' bindtap=''>{{title}}</view>
+    </view>
+
+</view>
+
+<view class="nav-pos" style="padding-top:{{statusBarHeight}}px;background-color:{{setColor}}" wx:else>
+    <view class="nav-wrapper" style="height:{{navgationHeight}}px;">
+        <view class='nav-left-pos' wx:if="{{showBack}}" bindtap='_goBack'>
+            <image src="../../images/back_white@2x.png" class='back-icon'></image>
+        </view>
+        <view class='nav-title' bindtap='_titleTap'>{{title}}
+            <image class="title-icon" src="{{titleIcon}}" wx:if="{{titleIcon}}"></image>
+        </view>
+    </view>
+</view>

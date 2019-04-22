@@ -1,0 +1,10 @@
+{
+    "navigationBarBackgroundColor": "#fe4b88",
+    "navigationBarTextStyle": "light",
+    "navigationBarTitleText": "韩剧video",
+    "backgroundColor": "#fff",
+    "backgroundTextStyle": "light",
+    "usingComponents": { 
+        "load-more": "/components/load-more/index"
+    }
+}

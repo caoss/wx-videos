@@ -1,0 +1,9 @@
+/* components/component-tag-name.wxss */
+.ypage {
+  position: relative;
+  box-sizing: border-box
+}
+
+.save-btn {
+    
+}

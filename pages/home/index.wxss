@@ -1,0 +1,144 @@
+page {
+    height: 100%;
+}
+view , scroll-view{
+    padding: 0px;
+    margin: 0px;
+}
+.weui-navbar{
+    width: 100%;
+    position: fixed;
+    border-bottom: 1px solid #fe4b88;
+    box-sizing: border-box;
+    white-space: nowrap; 
+    z-index: 100;
+    background: #fe4b88;
+}
+.weui-navbar .default-item{
+    height: 75rpx;
+    display: inline-block;
+    text-align: center;
+    font-size: 30rpx;
+    color: #fff;
+    box-sizing: border-box;
+    background:#fe4b88;
+    padding: 16rpx 0;
+    position: relative;
+}
+.act_nav{
+    position: absolute;
+    width: 30rpx;
+    height: 6rpx;
+    background: #fff;
+    left: 0;
+    right: 0;
+    margin:0 auto;
+    bottom: 3rpx;
+}
+.weui-navbar-slider{
+    position: absolute;
+    width: 160rpx;
+    height: 2px;
+    content:"";
+    background: #0000ff;
+    bottom: 0px;
+    left: 12.5rpx;
+    transition: transform .3s;
+}
+.swiper-box{
+    height: 100%;
+    border-bottom: 1px solid #d1d1d1;
+    padding-top: 75rpx;
+    box-sizing: border-box;
+}
+.swiper-box .swiper-item{
+    height: 100%;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+.wallpaper-con{
+    width: 100%;
+    height: 100%;
+}
+.video_box{
+    padding: 32rpx 30rpx 0rpx 30rpx; 
+}
+.line{
+    width: 100%;
+    height: 24rpx;
+    border-bottom: 1rpx solid #e5e5e5;
+}
+.video_tit{
+    font-size:32rpx;
+    line-height:44rpx;
+    color: #000
+}
+
+.forAudio{
+    width: 100%;
+    height: 400rpx;
+}
+.v-source-box{
+    color: #999;
+    font-size: 24rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.v_source{
+
+}
+.v_state{
+    display: flex;
+    flex-direction: row;
+}
+
+.videoImgBox{
+    position: relative;
+    margin-top: 16rpx;
+    margin-bottom: 22rpx;
+}
+.icon_player{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 120rpx;
+    height: 132rpx;
+}
+
+.icon_zan{
+    width: 44rpx;
+    height: 44rpx;
+}
+.v_state_edit{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 32rpx;
+}
+.video_time{
+    height: 30rpx;
+    position: absolute;
+    bottom: 20rpx;
+    right: 20rpx;
+    background:rgba(0, 0, 0, 0.6);
+    font-size: 20rpx;
+    padding:5rpx;
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10rpx;
+}
+.v_state_edit button{
+    padding: 0;
+    background: none;
+    line-height: 0;
+}
+
+.v_state_edit button::after{ border: none;}

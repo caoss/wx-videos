@@ -1,0 +1,42 @@
+{
+    "pages": [
+        "pages/home/index",
+        "pages/test/index",
+        "pages/collect/index",
+        "pages/detail/index"
+    ],
+    "tabBar": {
+        "color": "#B2B2B2",
+        "selectedColor": "#333",
+        "backgroundColor": "#fff",
+        "borderStyle": "white",
+        "list": [
+            {
+                "pagePath": "pages/home/index",
+                "iconPath": "/images/tabBar/icon_sleat.png",
+                "selectedIconPath": "/images/tabBar/icon_select_Selected.png",
+                "text": "精选"
+            },
+            {
+                "pagePath": "pages/collect/index",
+                "iconPath": "/images/tabBar/icon_collect.png",
+                "selectedIconPath": "/images/tabBar/icon_collect_sleated.png",
+                "text": "收藏"
+            }
+        ]
+      },
+    "usingComponents": {
+        "header": "/components/header/index",
+        "ypage": "/components/page/index"
+    },
+    "networkTimeout": {
+        "request": 1000000
+    },
+    "window": {
+        "enablePullDownRefresh": false
+    },
+    "navigateToMiniProgramAppIdList": [
+        "wxf3f963b724069c29"
+    ],
+    "debug": false
+}

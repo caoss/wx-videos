@@ -1,0 +1,58 @@
+<scroll-view scroll-x="true" class="weui-navbar" scroll-into-view="{{topView}}">
+    <block wx:for-items="{{tabs}}" wx:key='key'>
+        <view id="{{item.id}}" class=" default-item " bindtap="tabClick" style="width:{{tabW}}px"  >
+            {{item.name}}
+            <view class="{{activeIndex == index ?'act_nav':''}}"></view>
+        </view>
+    </block>
+    <view class="weui-navbar-slider" style="transform:translateX({{slideOffset}}px);"></view>
+</scroll-view>
+
+<swiper current="{{activeIndex}}" class="swiper-box" duration="100" bindchange="bindChange">
+    <block wx:for="{{ tabs }}" wx:key='{{ id }}'>
+        <swiper-item class="swiper-item">
+            <scroll-view class="wallpaper-con" scroll-y="true" bindscrolltolower="_loadMoreData" lower-threshold="100" data-current='{{ activeIndex }}' bindscrolltoupper="refresh">
+                <block wx:for="{{ props.homeStore.videosListDatas[index].list }}"  wx:key='{{ id }}' >
+                    <view class='video_box'>
+                        <view class='video_tit' bindtap='_toDetail' data-id='{{ item.id }}'>
+                            {{ item.title }}
+                        </view>
+                        <view class='videoImgBox' bindtap='_toDetail'  data-id='{{ item.id }}'>
+                            <image class="forAudio" src="{{ item.imgUrl }}" mode="aspectFill" lazy-load="false" binderror="" bindload="" />
+                            <image class="icon_player" src="../../images/icon_player.png" mode="aspectFill" lazy-load="false" binderror="" bindload="" />
+                            <view class='video_time'>
+                                {{ item.videoDurationStr }}
+                            </view>
+                        </view>
+                        <view class=" v-source-box ">
+                            <view class=" v_source ">
+                                {{ item.posterName }}
+                            </view>
+                            <view class=" v_state ">
+                                <view class='v_state_edit'>
+                                    <!--
+                                    <button open-type="" data-id='{{ item.id }}' bindgetuserinfo="_like">
+                                        <image class="icon_zan" src="../../images/icon_like.png" mode="aspectFill" lazy-load="false" binderror="" bindload="" />
+                                    </button>
+                                    -->喜欢
+                                    {{ item.likeCount }}
+                                </view>
+                                <view class='v_state_edit'>
+                                    <!--
+                                    <button open-type="" data-id='{{ item.id }}'  bindgetuserinfo='_collect'>
+                                        <image class="icon_zan" src="../../images/icon_collec.png" mode="aspectFill" lazy-load="false" binderror="" bindload="" />
+                                    </button>
+                                    -->
+                                    收藏
+                                    {{ item.collectCount }}
+                                </view>
+                            </view>
+                        </view>
+                        <view class='line'></view>
+                    </view>
+                </block>
+                <load-more loadStatus="{{loadStatus[activeIndex]}}"></load-more>
+            </scroll-view>
+        </swiper-item>
+     </block>
+</swiper>

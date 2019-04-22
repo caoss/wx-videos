@@ -1,0 +1,4 @@
+<!-- 组件模板 -->
+<view class="ypage" style="height:100%;padding-top:{{statusBarHeight + navgationHeight}}px">
+    <slot></slot>
+</view>

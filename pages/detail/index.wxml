@@ -1,0 +1,75 @@
+<!--pages/home.wxml-->
+<view class="home-con">
+    <view class='main'>
+        <scroll-view class='scroll_box' scroll-y="true" scroll-top='{{ scrollTop }}'> 
+            <view class='video_box'>
+                <view class='video_tit'>
+                    {{ props.homeStore.videoDetail.title }}
+                </view>
+                <view class='videoImgBox'>
+                <video
+                    id="myVideo"
+                    class="forAudio"
+                    src="{{ props.homeStore.videoDetail.videoUrl}}"
+                    danmu-btn="{{ false }}"
+                    enable-danmu='{{ false }}'
+                    controls
+                    show-play-btn
+                ></video>
+                </view>
+                <view class=" v-source-box ">
+                    <view class=" v_source ">
+                        {{ props.homeStore.videoDetail.posterName }}
+                    </view>
+                    <view class="v_state" >
+                        <view class='v_state_edit'>
+                            <button open-type="getUserInfo" data-id='{{ props.homeStore.videoDetail.id }}' data-liked='{{ props.homeStore.videoDetail.liked }}' bindgetuserinfo="_like">
+                                <image wx:if='{{ !props.homeStore.videoDetail.liked }}' class="icon_zan" src="../../images/icon_like.png" mode="aspectFill" lazy-load="false" binderror="" bindload="" />
+                                <image wx:if='{{ props.homeStore.videoDetail.liked }}' class="icon_zan" src="../../images/icon_liked.png" mode="aspectFill" lazy-load="false" binderror="" bindload="" />
+                            </button>
+                            {{ props.homeStore.videoDetail.likeCount}}
+                        </view>
+                        <view class='v_state_edit'>
+                            <button open-type="getUserInfo" data-id='{{ props.homeStore.videoDetail.id }}' data-collected='{{ props.homeStore.videoDetail.collected }}'  bindgetuserinfo="_collect">
+                                <image wx:if='{{ !props.homeStore.videoDetail.collected }}' class="icon_zan" src="../../images/icon_collec.png" mode="aspectFill" lazy-load="false" binderror="" bindload="" />
+                                <image wx:if='{{ props.homeStore.videoDetail.collected }}' class="icon_zan" src="../../images/icon_collected.png" mode="aspectFill" lazy-load="false" binderror="" bindload="" />
+                            </button>
+                            {{ props.homeStore.videoDetail.collectCount}}
+                        </view>
+                    </view>
+                </view>
+                <view class='line'></view>
+            </view>
+
+
+            <view class='recommend_main'>
+                <view class='recommend_tit'>
+                    相关推荐
+                </view>
+                <view class='rmd_con'  wx:for="{{ props.homeStore.videoRelative }}"  wx:key='{{ id }}'>
+
+                    <view class='rmd_item' bindtap='_toDetail' data-id='{{ item.id }}'>
+                        <view class='rmd_txt'>
+                            <view class='rmd_txt_content'>
+                                {{ item.title }}
+                            </view>
+                            <view class='rmd_txt_bot'>
+                                <view class='rmd_tb_n'>
+                                    {{ item.posterName }}
+                                </view>
+                            </view>
+                        </view>
+                        <view class='rmd_img'>
+                            <view class='video_time'>
+                                {{ item.videoDurationStr }}
+                            </view>
+                            <image class='img_rmd' src="{{ item.imgUrl }}" mode='aspectFill'></image>
+                        </view>
+                    </view>
+
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+   
+</view>

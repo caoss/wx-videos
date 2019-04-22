@@ -1,0 +1,9 @@
+<!-- 组件模板 -->
+<view>
+    <view style="width: 100%;height:{{height}}rpx" id="poater-canvas-con">
+        <canvas canvas-id="poater-canvas" style="width:100%;height:100%"></canvas>
+    </view>
+    <button class="save-btn" catchtap="_tapDownload" hover-class="none">
+        保存到相册
+    </button>    
+</view>
